@@ -1,0 +1,1440 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>新亚再生资源回收有限公司</title>
+    <!-- Font Awesome 图标库 (轻奢感图标) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts: 思源宋体 & 无衬线体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+        /* ===== CSS 变量 – 轻奢色调 ===== */
+        :root {
+            --gold: #C9A96E;
+            --gold-light: #E8D5A3;
+            --gold-pale: #F5EDDF;
+            --green-deep: #1A3A2A;
+            --green-mid: #2D5A3D;
+            --green-light: #4A7C5A;
+            --cream: #FAF7F0;
+            --charcoal: #2C2C2C;
+            --gray-soft: #F0EDE8;
+            --shadow-gold: rgba(201, 169, 110, 0.3);
+            --shadow-dark: rgba(26, 58, 42, 0.15);
+            --radius: 16px;
+            --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        /* ===== 全局重置 ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Serif SC', sans-serif;
+            background-color: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* ===== 轻奢装饰线 ===== */
+        .gold-divider {
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+            margin: 12px auto 24px;
+            border-radius: 4px;
+        }
+
+        .gold-divider-left {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+            margin: 12px 0 24px;
+            border-radius: 4px;
+        }
+
+        /* ===== 头部导航 ===== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(250, 247, 240, 0.92);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(201, 169, 110, 0.2);
+            transition: var(--transition);
+        }
+
+        .header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 76px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            font-size: 28px;
+            color: var(--gold);
+            background: var(--green-deep);
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .logo-text {
+            font-family: 'Noto Serif SC', serif;
+            font-weight: 700;
+            font-size: 22px;
+            color: var(--green-deep);
+            letter-spacing: 2px;
+        }
+
+        .logo-text span {
+            color: var(--gold);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 36px;
+            font-weight: 500;
+            font-size: 15px;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links a {
+            position: relative;
+            color: var(--charcoal);
+            transition: var(--transition);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .header-phone {
+            font-weight: 600;
+            color: var(--green-deep);
+            background: var(--gold-pale);
+            padding: 8px 20px;
+            border-radius: 40px;
+            border: 1px solid rgba(201, 169, 110, 0.3);
+            font-size: 14px;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .header-phone i {
+            color: var(--gold);
+        }
+
+        .header-phone:hover {
+            background: var(--gold);
+            color: #fff;
+            border-color: var(--gold);
+        }
+
+        .header-phone:hover i {
+            color: #fff;
+        }
+
+        /* 移动端菜单按钮 */
+        .menu-toggle {
+            display: none;
+            font-size: 26px;
+            color: var(--green-deep);
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 4px;
+        }
+
+        /* ===== Hero 区域 ===== */
+        .hero {
+            padding-top: 120px;
+            padding-bottom: 80px;
+            background: linear-gradient(165deg, var(--cream) 0%, var(--gold-pale) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(201, 169, 110, 0.10) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(26, 58, 42, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-family: 'Noto Serif SC', serif;
+            font-weight: 900;
+            font-size: 52px;
+            line-height: 1.2;
+            color: var(--green-deep);
+            margin-bottom: 16px;
+        }
+
+        .hero-content h1 .highlight {
+            color: var(--gold);
+            position: relative;
+        }
+
+        .hero-content h1 .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: rgba(201, 169, 110, 0.25);
+            border-radius: 4px;
+            z-index: -1;
+        }
+
+        .hero-sub {
+            font-size: 20px;
+            font-weight: 400;
+            color: var(--green-mid);
+            margin-bottom: 12px;
+            letter-spacing: 2px;
+        }
+
+        .hero-desc {
+            font-size: 17px;
+            color: #5A6B5E;
+            max-width: 480px;
+            margin-bottom: 32px;
+            line-height: 1.8;
+        }
+
+        .hero-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 20px;
+            margin-bottom: 36px;
+        }
+
+        .hero-badges span {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(6px);
+            padding: 6px 18px;
+            border-radius: 40px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--green-deep);
+            border: 1px solid rgba(201, 169, 110, 0.2);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+        }
+
+        .hero-badges i {
+            color: var(--gold);
+            margin-right: 6px;
+        }
+
+        .hero-cta {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--green-deep);
+            color: #fff;
+            padding: 14px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 8px 24px rgba(26, 58, 42, 0.25);
+        }
+
+        .btn-primary:hover {
+            background: var(--gold);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(201, 169, 110, 0.35);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--green-deep);
+            padding: 12px 32px;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 15px;
+            border: 1.5px solid var(--green-deep);
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-outline:hover {
+            background: var(--green-deep);
+            color: #fff;
+            border-color: var(--green-deep);
+        }
+
+        /* Hero 右侧装饰卡片 */
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border-radius: var(--radius);
+            padding: 40px 36px;
+            width: 100%;
+            max-width: 420px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 20px 60px rgba(26, 58, 42, 0.08);
+            position: relative;
+        }
+
+        .hero-card::before {
+            content: '♻️';
+            position: absolute;
+            top: -18px;
+            right: -18px;
+            font-size: 48px;
+            opacity: 0.15;
+            transform: rotate(15deg);
+        }
+
+        .hero-card .card-title {
+            font-family: 'Noto Serif SC', serif;
+            font-weight: 700;
+            font-size: 20px;
+            color: var(--green-deep);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .hero-card .card-title i {
+            color: var(--gold);
+            font-size: 24px;
+        }
+
+        .hero-card .info-row {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(201, 169, 110, 0.12);
+        }
+
+        .hero-card .info-row:last-child {
+            border-bottom: none;
+        }
+
+        .hero-card .info-row i {
+            width: 28px;
+            color: var(--gold);
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .hero-card .info-row .label {
+            font-weight: 500;
+            color: var(--green-mid);
+            font-size: 14px;
+            min-width: 48px;
+        }
+
+        .hero-card .info-row .value {
+            font-weight: 500;
+            color: var(--charcoal);
+            font-size: 15px;
+        }
+
+        .hero-card .qr-placeholder {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background: rgba(255, 255, 255, 0.5);
+            padding: 12px 18px;
+            border-radius: 12px;
+            border: 1px dashed rgba(201, 169, 110, 0.3);
+        }
+
+        .hero-card .qr-placeholder i {
+            font-size: 32px;
+            color: var(--gold);
+        }
+
+        .hero-card .qr-placeholder span {
+            font-size: 14px;
+            color: var(--green-mid);
+        }
+
+        /* ===== 通用章节 ===== */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-family: 'Noto Serif SC', serif;
+            font-weight: 700;
+            font-size: 36px;
+            color: var(--green-deep);
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #7A8B7E;
+            font-size: 17px;
+            font-weight: 400;
+            max-width: 560px;
+            margin: 0 auto 8px;
+        }
+
+        /* ===== 关于我们 ===== */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .about-text p {
+            font-size: 16.5px;
+            color: #4A5C4E;
+            line-height: 2;
+            margin-bottom: 20px;
+        }
+
+        .about-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 28px;
+        }
+
+        .stat-item {
+            background: #fff;
+            padding: 24px 20px;
+            border-radius: var(--radius);
+            text-align: center;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(201, 169, 110, 0.10);
+            transition: var(--transition);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(201, 169, 110, 0.12);
+        }
+
+        .stat-item .number {
+            font-family: 'Noto Serif SC', serif;
+            font-weight: 900;
+            font-size: 32px;
+            color: var(--gold);
+        }
+
+        .stat-item .label {
+            font-size: 14px;
+            color: #6A7C6E;
+            margin-top: 4px;
+        }
+
+        .about-image {
+            background: linear-gradient(145deg, var(--gold-pale), #fff);
+            border-radius: var(--radius);
+            padding: 32px;
+            border: 1px solid rgba(201, 169, 110, 0.15);
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+        }
+
+        .about-image .big-icon {
+            font-size: 72px;
+            margin-bottom: 16px;
+            opacity: 0.7;
+        }
+
+        .about-image h3 {
+            font-family: 'Noto Serif SC', serif;
+            font-weight: 600;
+            color: var(--green-deep);
+            font-size: 22px;
+        }
+
+        .about-image p {
+            color: #5A6B5E;
+            font-size: 15px;
+            margin-top: 6px;
+        }
+
+        /* ===== 回收范围 ===== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            background: #fff;
+            padding: 32px 20px 28px;
+            border-radius: var(--radius);
+            text-align: center;
+            border: 1px solid rgba(201, 169, 110, 0.10);
+            transition: var(--transition);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(201, 169, 110, 0.12);
+            border-color: rgba(201, 169, 110, 0.20);
+        }
+
+        .service-card:hover::after {
+            transform: scaleX(1);
+        }
+
+        .service-card .icon {
+            font-size: 40px;
+            color: var(--gold);
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .service-card h4 {
+            font-family: 'Noto Serif SC', serif;
+            font-weight: 600;
+            font-size: 20px;
+            color: var(--green-deep);
+            margin-bottom: 4px;
+        }
+
+        .service-card p {
+            font-size: 14px;
+            color: #7A8B7E;
+        }
+
+        /* ===== 团队 ===== */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .team-card {
+            background: #fff;
+            border-radius: var(--radius);
+            padding: 36px 28px 32px;
+            text-align: center;
+            border: 1px solid rgba(201, 169, 110, 0.08);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .team-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 48px rgba(201, 169, 110, 0.10);
+        }
+
+        .team-card .avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold-pale), var(--gold-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            font-size: 42px;
+            color: var(--gold);
+            border: 3px solid rgba(201, 169, 110, 0.20);
+            box-shadow: 0 8px 24px rgba(201, 169, 110, 0.10);
+        }
+
+        .team-card .name {
+            font-family: 'Noto Serif SC', serif;
+            font-weight: 700;
+            font-size: 24px;
+            color: var(--green-deep);
+        }
+
+        .team-card .title {
+            font-weight: 500;
+            color: var(--gold);
+            font-size: 15px;
+            letter-spacing: 2px;
+            margin-bottom: 6px;
+        }
+
+        .team-card .bio {
+            font-size: 15px;
+            color: #5A6B5E;
+            line-height: 1.7;
+            margin-top: 8px;
+        }
+
+        .team-card .badge {
+            display: inline-block;
+            background: var(--gold-pale);
+            padding: 4px 16px;
+            border-radius: 40px;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--green-deep);
+            margin-top: 12px;
+            border: 1px solid rgba(201, 169, 110, 0.15);
+        }
+
+        /* ===== 联系 / 底部 ===== */
+        .contact-section {
+            background: var(--green-deep);
+            color: #fff;
+            padding: 72px 0 56px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-section::before {
+            content: '♻️';
+            position: absolute;
+            right: -40px;
+            bottom: -40px;
+            font-size: 200px;
+            opacity: 0.04;
+            transform: rotate(-10deg);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .contact-info h2 {
+            font-family: 'Noto Serif SC', serif;
+            font-weight: 700;
+            font-size: 32px;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .contact-info .gold-divider-left {
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+            margin: 12px 0 24px;
+        }
+
+        .contact-info p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 16px;
+            line-height: 1.9;
+            margin-bottom: 24px;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .contact-detail:last-child {
+            border-bottom: none;
+        }
+
+        .contact-detail i {
+            width: 28px;
+            color: var(--gold);
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .contact-detail .label {
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.5);
+            min-width: 56px;
+            font-size: 14px;
+        }
+
+        .contact-detail .value {
+            font-weight: 500;
+            color: #fff;
+            font-size: 15px;
+            word-break: break-word;
+        }
+
+        .contact-detail .value a {
+            color: var(--gold-light);
+            transition: var(--transition);
+        }
+
+        .contact-detail .value a:hover {
+            color: #fff;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(6px);
+            border-radius: var(--radius);
+            padding: 32px 28px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .contact-card h4 {
+            font-family: 'Noto Serif SC', serif;
+            font-weight: 600;
+            font-size: 20px;
+            margin-bottom: 16px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-card h4 i {
+            color: var(--gold);
+        }
+
+        .contact-card .wechat-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 14px 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(201, 169, 110, 0.15);
+            margin-top: 12px;
+        }
+
+        .contact-card .wechat-row i {
+            font-size: 32px;
+            color: var(--gold);
+        }
+
+        .contact-card .wechat-row .wx-label {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .contact-card .wechat-row .wx-value {
+            font-weight: 600;
+            font-size: 18px;
+            color: #fff;
+            letter-spacing: 1px;
+        }
+
+        .contact-card .btn-outline-light {
+            background: transparent;
+            color: #fff;
+            padding: 12px 32px;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 15px;
+            border: 1.5px solid rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 18px;
+        }
+
+        .contact-card .btn-outline-light:hover {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: var(--green-deep);
+        }
+
+        /* ===== Footer ===== */
+        .footer {
+            background: #0F261C;
+            padding: 28px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .footer .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer p {
+            color: rgba(255, 255, 255, 0.35);
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+
+        .footer .socials {
+            display: flex;
+            gap: 18px;
+        }
+
+        .footer .socials a {
+            color: rgba(255, 255, 255, 0.25);
+            transition: var(--transition);
+            font-size: 18px;
+        }
+
+        .footer .socials a:hover {
+            color: var(--gold);
+        }
+
+        /* ===== 响应式 ===== */
+        @media (max-width: 1024px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-desc {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-badges {
+                justify-content: center;
+            }
+
+            .hero-cta {
+                justify-content: center;
+            }
+
+            .hero-card {
+                max-width: 100%;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .section-title {
+                font-size: 30px;
+            }
+
+            .hero-content h1 {
+                font-size: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header .container {
+                height: 64px;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 64px;
+                left: 0;
+                width: 100%;
+                background: rgba(250, 247, 240, 0.98);
+                backdrop-filter: blur(18px);
+                padding: 24px 32px;
+                gap: 20px;
+                border-bottom: 1px solid rgba(201, 169, 110, 0.1);
+                box-shadow: 0 16px 40px rgba(0, 0, 0, 0.04);
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .header-phone {
+                display: none;
+            }
+
+            .hero {
+                padding-top: 90px;
+                padding-bottom: 50px;
+            }
+
+            .hero-content h1 {
+                font-size: 32px;
+            }
+
+            .hero-sub {
+                font-size: 17px;
+            }
+
+            .hero-card {
+                padding: 28px 20px;
+            }
+
+            .section {
+                padding: 50px 0;
+            }
+
+            .section-title {
+                font-size: 26px;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+                max-width: 360px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .about-stats {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .contact-detail {
+                flex-wrap: wrap;
+                gap: 6px;
+            }
+
+            .contact-detail .label {
+                min-width: auto;
+            }
+
+            .footer .container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .logo-text {
+                font-size: 18px;
+            }
+
+            .logo-icon {
+                width: 36px;
+                height: 36px;
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 18px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 14px;
+            }
+
+            .service-card {
+                padding: 22px 12px 18px;
+            }
+
+            .service-card .icon {
+                font-size: 30px;
+            }
+
+            .service-card h4 {
+                font-size: 17px;
+            }
+
+            .hero-card .info-row {
+                flex-wrap: wrap;
+                gap: 4px;
+            }
+
+            .hero-card .info-row .label {
+                min-width: auto;
+            }
+
+            .about-stats {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+
+            .stat-item .number {
+                font-size: 26px;
+            }
+
+            .btn-primary {
+                padding: 12px 28px;
+                font-size: 15px;
+            }
+
+            .btn-outline {
+                padding: 10px 24px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon"><i class="fas fa-recycle"></i></div>
+                <div class="logo-text">新亚<span>资源</span></div>
+            </div>
+
+            <nav class="nav-links" id="navLinks">
+                <a href="#about">关于</a>
+                <a href="#services">回收范围</a>
+                <a href="#team">团队</a>
+                <a href="#contact">联系</a>
+            </nav>
+
+            <a href="tel:13716594396" class="header-phone">
+                <i class="fas fa-phone-alt"></i> 137-1659-4396
+            </a>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="菜单">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-sub">♻️ 绿色循环 · 永续价值</div>
+                <h1>
+                    新亚再生资源<br />
+                    <span class="highlight">回收 · 重塑 · 再生</span>
+                </h1>
+                <p class="hero-desc">
+                    深耕再生资源领域，以专业与诚信推动绿色循环经济。
+                    我们让每一份废旧金属与电器重获新生。
+                </p>
+                <div class="hero-badges">
+                    <span><i class="fas fa-check-circle"></i> 资质齐全</span>
+                    <span><i class="fas fa-trophy"></i> 行业标杆</span>
+                    <span><i class="fas fa-leaf"></i> 绿色先锋</span>
+                </div>
+                <div class="hero-cta">
+                    <a href="#contact" class="btn-primary">
+                        <i class="fas fa-paper-plane"></i> 立即联系
+                    </a>
+                    <a href="#services" class="btn-outline">
+                        <i class="fas fa-arrow-right"></i> 回收范围
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="hero-card">
+                    <div class="card-title">
+                        <i class="fas fa-building"></i> 新亚 · 速览
+                    </div>
+                    <div class="info-row">
+                        <i class="fas fa-user-tie"></i>
+                        <span class="label">董事长</span>
+                        <span class="value">殷新亚</span>
+                    </div>
+                    <div class="info-row">
+                        <i class="fas fa-user-cog"></i>
+                        <span class="label">执行总裁</span>
+                        <span class="value">吴可可</span>
+                    </div>
+                    <div class="info-row">
+                        <i class="fas fa-phone-alt"></i>
+                        <span class="label">电话</span>
+                        <span class="value"><a href="tel:13716594396" style="color:var(--green-deep);">137-1659-4396</a></span>
+                    </div>
+                    <div class="info-row">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span class="label">地址</span>
+                        <span class="value">南通海门区包场镇笑乐超市旁</span>
+                    </div>
+                    <div class="qr-placeholder">
+                        <i class="fab fa-weixin"></i>
+                        <span>微信号：<strong>nini20170227</strong></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 关于我们 ===== -->
+    <section class="section" id="about">
+        <div class="container">
+            <h2 class="section-title">关于新亚</h2>
+            <div class="gold-divider"></div>
+            <p class="section-subtitle">以匠心致初心，让资源循环成为可持续的美学</p>
+
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>
+                        <strong>新亚再生资源回收有限公司</strong> 坐落于江苏省南通市海门区，
+                        是一家专注于各类金属及废旧电器回收与再利用的现代化企业。
+                        公司秉承“绿色、高效、共赢”的经营理念，致力于为客户提供
+                        专业、透明、便捷的回收服务。
+                    </p>
+                    <p>
+                        我们拥有丰富的行业经验与完善的回收体系，覆盖铜、铁、铝、
+                        稀有金属及废旧电器等多品类。新亚以严谨的态度对待每一笔业务，
+                        以真诚的合作赢得每一位客户的信赖。
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <div class="number">10+</div>
+                            <div class="label">行业经验</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="number">100%</div>
+                            <div class="label">客户满意度</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="number">∞</div>
+                            <div class="label">循环利用</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="number">♻️</div>
+                            <div class="label">绿色使命</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="big-icon">🏭</div>
+                    <h3>新亚再生资源</h3>
+                    <p>专业回收 · 诚信经营 · 绿色发展</p>
+                    <div style="margin-top:12px; font-size:14px; color:var(--gold);">
+                        <i class="fas fa-star" style="color:var(--gold);"></i>
+                        <i class="fas fa-star" style="color:var(--gold);"></i>
+                        <i class="fas fa-star" style="color:var(--gold);"></i>
+                        <i class="fas fa-star" style="color:var(--gold);"></i>
+                        <i class="fas fa-star" style="color:var(--gold);"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 回收范围 ===== -->
+    <section class="section" id="services" style="background: #F5F2EB;">
+        <div class="container">
+            <h2 class="section-title">回收范围</h2>
+            <div class="gold-divider"></div>
+            <p class="section-subtitle">全品类金属与电器回收，让资源价值最大化</p>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <span class="icon"><i class="fas fa-copper"></i></span>
+                    <h4>铜</h4>
+                    <p>紫铜 · 黄铜 · 铜线 · 铜管</p>
+                </div>
+                <div class="service-card">
+                    <span class="icon"><i class="fas fa-iron"></i></span>
+                    <h4>铁</h4>
+                    <p>废铁 · 钢铁 · 铁屑 · 重废</p>
+                </div>
+                <div class="service-card">
+                    <span class="icon"><i class="fas fa-cube"></i></span>
+                    <h4>铝</h4>
+                    <p>铝线 · 铝型材 · 铝合金 · 易拉罐</p>
+                </div>
+                <div class="service-card">
+                    <span class="icon"><i class="fas fa-gem"></i></span>
+                    <h4>稀有金属</h4>
+                    <p>镍 · 铬 · 钼 · 钨 · 钛 · 钴</p>
+                </div>
+                <div class="service-card">
+                    <span class="icon"><i class="fas fa-tv"></i></span>
+                    <h4>废旧电器</h4>
+                    <p>冰箱 · 空调 · 洗衣机 · 电视 · 电脑</p>
+                </div>
+                <div class="service-card">
+                    <span class="icon"><i class="fas fa-bolt"></i></span>
+                    <h4>工业废料</h4>
+                    <p>电缆 · 电机 · 变压器 · 配电柜</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 团队 ===== -->
+    <section class="section" id="team">
+        <div class="container">
+            <h2 class="section-title">核心团队</h2>
+            <div class="gold-divider"></div>
+            <p class="section-subtitle">专业领航，以远见与责任驱动绿色未来</p>
+
+            <div class="team-grid">
+                <!-- 董事长 -->
+                <div class="team-card">
+                    <div class="avatar"><i class="fas fa-user-tie"></i></div>
+                    <div class="name">殷新亚</div>
+                    <div class="title">董事长</div>
+                    <div class="bio">
+                        深耕再生资源行业十余年，以战略眼光布局绿色循环经济，
+                        引领新亚成为区域标杆企业。
+                    </div>
+                    <span class="badge"><i class="fas fa-medal"></i> 行业领军者</span>
+                </div>
+
+                <!-- 执行总裁 -->
+                <div class="team-card">
+                    <div class="avatar"><i class="fas fa-user-cog"></i></div>
+                    <div class="name">吴可可</div>
+                    <div class="title">执行总裁</div>
+                    <div class="bio">
+                        精通回收运营与企业管理，以高效执行力推动业务创新，
+                        赋能团队持续创造价值。
+                    </div>
+                    <span class="badge"><i class="fas fa-rocket"></i> 运营专家</span>
+                </div>
+
+                <!-- 第三位（示意） -->
+                <div class="team-card">
+                    <div class="avatar"><i class="fas fa-users"></i></div>
+                    <div class="name">专业团队</div>
+                    <div class="title">技术 &amp; 服务</div>
+                    <div class="bio">
+                        集结行业资深评估师与回收专员，提供精准估价、
+                        高效上门、一站式回收解决方案。
+                    </div>
+                    <span class="badge"><i class="fas fa-handshake"></i> 全程无忧</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 联系 / 底部信息 ===== -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2>新亚再生资源</h2>
+                    <div class="gold-divider-left"></div>
+                    <p>
+                        无论您有大量工业废料，还是少量家用电器，
+                        新亚都为您提供专业、透明、高效的回收服务。
+                        欢迎来电或微信咨询，我们随时待命。
+                    </p>
+
+                    <div class="contact-detail">
+                        <i class="fas fa-phone-alt"></i>
+                        <span class="label">电话</span>
+                        <span class="value"><a href="tel:13716594396">137-1659-4396</a></span>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fab fa-weixin"></i>
+                        <span class="label">微信</span>
+                        <span class="value"><a href="weixin://" style="color:var(--gold-light);">nini20170227</a></span>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span class="label">地址</span>
+                        <span class="value">江苏省南通市海门区包场镇笑乐超市旁</span>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fas fa-clock"></i>
+                        <span class="label">营业</span>
+                        <span class="value">周一至周日 · 08:00 – 20:00</span>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <h4><i class="fas fa-comment-dots"></i> 快捷联系</h4>
+                    <p style="color:rgba(255,255,255,0.6); font-size:15px; margin-bottom:16px;">
+                        扫码或搜索微信号，获取即时报价与服务咨询
+                    </p>
+                    <div class="wechat-row">
+                        <i class="fab fa-weixin"></i>
+                        <div>
+                            <div class="wx-label">微信号</div>
+                            <div class="wx-value">nini20170227</div>
+                        </div>
+                    </div>
+                    <a href="tel:13716594396" class="btn-outline-light" style="margin-top:20px; display:inline-flex; align-items:center; gap:10px;">
+                        <i class="fas fa-phone"></i> 一键拨打
+                    </a>
+                    <a href="weixin://" class="btn-outline-light" style="margin-top:12px; display:inline-flex; align-items:center; gap:10px; margin-left:10px;">
+                        <i class="fab fa-weixin"></i> 添加微信
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 新亚再生资源回收有限公司 · 绿色循环 永续发展</p>
+            <div class="socials">
+                <a href="#" aria-label="微信"><i class="fab fa-weixin"></i></a>
+                <a href="#" aria-label="电话"><i class="fas fa-phone"></i></a>
+                <a href="#" aria-label="地图"><i class="fas fa-map-pin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== 移动端菜单交互 ===== -->
+    <script>
+        (function() {
+            const toggle = document.getElementById('menuToggle');
+            const nav = document.getElementById('navLinks');
+
+            toggle.addEventListener('click', function() {
+                nav.classList.toggle('open');
+                // 切换图标
+                const icon = toggle.querySelector('i');
+                if (nav.classList.contains('open')) {
+                    icon.className = 'fas fa-times';
+                } else {
+                    icon.className = 'fas fa-bars';
+                }
+            });
+
+            // 点击导航链接后关闭菜单（移动端）
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', function() {
+                    nav.classList.remove('open');
+                    const icon = toggle.querySelector('i');
+                    icon.className = 'fas fa-bars';
+                });
+            });
+
+            // 滚动时头部阴影
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 20) {
+                    header.style.boxShadow = '0 4px 30px rgba(0,0,0,0.04)';
+                } else {
+                    header.style.boxShadow = 'none';
+                }
+            });
+        })();
+    </script>
+
+</body>
+</html>
